@@ -321,7 +321,7 @@ def get_all_products(
 
 
 
-@app.get("/product/{product_id}")
+@app.get("/stats/product/{product_id}")
 def get_product(product_id: UUID, db: db_dependency):
     """Get a specific product by ID with sales analytics"""
     from sqlalchemy import func
