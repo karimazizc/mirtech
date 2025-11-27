@@ -101,9 +101,9 @@ export default function HomePage() {
       // Fetch chart data, stats, and table data in parallel
       // Use aggregated chart endpoint instead of raw data for massive performance boost
       const [chartResponse, statsResponse, tableResponse] = await Promise.all([
-        fetch(`http://localhost:8000/stats/charts?period=${timePeriod}`),
-        fetch(`http://localhost:8000/stats/summary?period=${timePeriod}`),
-        fetch(`http://localhost:8000/all?period=${timePeriod}&limit=1000&skip=0`) // Start from offset 0
+        fetch(`http://mirtech.whisttle.cloud:8000/stats/charts?period=${timePeriod}`),
+        fetch(`http://mirtech.whisttle.cloud:8000/stats/summary?period=${timePeriod}`),
+        fetch(`http://mirtech.whisttle.cloud:8000/all?period=${timePeriod}&limit=1000&skip=0`) // Start from offset 0
       ]);
       
       if (!chartResponse.ok || !statsResponse.ok || !tableResponse.ok) {
@@ -150,8 +150,8 @@ export default function HomePage() {
       
       // Use product search endpoint if in search mode
       const endpoint = isSearchMode 
-        ? `http://localhost:8000/products/search?query=${encodeURIComponent(productSearchQuery)}&skip=${currentOffset}`
-        : `http://localhost:8000/all?period=${timePeriod}&limit=1000&skip=${currentOffset}`;
+        ? `http://mirtech.whisttle.cloud:8000/products/search?query=${encodeURIComponent(productSearchQuery)}&skip=${currentOffset}`
+        : `http://mirtech.whisttle.cloud:8000/all?period=${timePeriod}&limit=1000&skip=${currentOffset}`;
       
       const response = await fetch(endpoint);
       
@@ -199,7 +199,7 @@ export default function HomePage() {
       setHasMore(true);
       
       const response = await fetch(
-        `http://localhost:8000/products/search?query=${encodeURIComponent(searchQuery)}&limit=1000&skip=0`
+        `http://mirtech.whisttle.cloud:8000/products/search?query=${encodeURIComponent(searchQuery)}&limit=1000&skip=0`
       );
       
       if (response.status === 404) {
@@ -244,11 +244,11 @@ export default function HomePage() {
         
         try {
           // Prefetch aggregated chart data (fire and forget)
-          fetch(`http://localhost:8000/stats/charts?period=${period}`).catch(() => {});
+          fetch(`http://mirtech.whisttle.cloud:8000/stats/charts?period=${period}`).catch(() => {});
           // Prefetch stats endpoint (fire and forget)
-          fetch(`http://localhost:8000/stats/summary?period=${period}`).catch(() => {});
+          fetch(`http://mirtech.whisttle.cloud:8000/stats/summary?period=${period}`).catch(() => {});
           // Prefetch limited table data (fire and forget)
-          fetch(`http://localhost:8000/all?period=${period}&limit=1000`).catch(() => {});
+          fetch(`http://mirtech.whisttle.cloud:8000/all?period=${period}&limit=1000`).catch(() => {});
         } catch (err) {
           // Silent fail - this is just prefetching
         }

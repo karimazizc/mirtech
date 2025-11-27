@@ -137,7 +137,7 @@ cd api
 
 2. Create and activate virtual environment:
 ```zsh
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
@@ -148,8 +148,19 @@ pip install -r requirements.txt
 
 4. Configure environment variables (create `.env` file):
 ```env
-DATABASE_URL=postgresql://mirtech_admin:password@localhost:5432/mirtech
+# Database Configuration
+DATABASE_URL=postgresql+psycopg2://mirtech_admin:mirtech1345@localhost:5432/mirtech
+DATABASE_USERNAME=mirtech_admin
+DATABASE_PASSWORD=mirtech1345
+# Redis Configuration
 REDIS_URL=redis://localhost:6379
+
+# Application Configuration
+ENVIRONMENT=development
+# SECRET_KEY=your-secret-key-change-in-production-use-openssl-rand-hex-32
+
+# CORS Configuration
+CORS_ORIGINS=["http://localhost:3000"]
 ```
 
 
@@ -195,9 +206,6 @@ docker-compose ps
 
 # View logs
 docker-compose logs -f backend
-
-# Seed the database (after services are up)
-docker exec -it mirtech-backend python api/mockdata.py
 ```
 
 ##  Performance Optimization Techniques

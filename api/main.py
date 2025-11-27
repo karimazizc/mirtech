@@ -920,14 +920,14 @@ def get_summary_stats(
 
 @app.on_event("startup")
 async def startup_event():
-    app.state.redis = Redis(host='localhost', port=6379)
+    app.state.redis = Redis(host='redis', port=6379)
     app.state.http_client = httpx.AsyncClient()
     
     # Preload cache for longer time periods in background
     import asyncio
     from datetime import datetime, timedelta
     from sqlalchemy import func
-    
+
     async def preload_cache():
         """Preload 6 months, 9 months, and 1 year data into Redis cache"""
         db = SessionLocal()

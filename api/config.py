@@ -8,11 +8,11 @@ class Settings(BaseSettings):
     
     # Database
     database_url: str = "postgresql+psycopg2://mirtech_admin:mirtech1345@localhost:5432/mirtech"
-    database_username: Optional[str] = None  # Add this
-    database_password: Optional[str] = None  # Add this
+    database_username: Optional[str] = 'mirtech_admin'  # Add this
+    database_password: Optional[str] = 'mirtech1345'  # Add this
     
     # Redis
-    redis_url: str = "redis://localhost:6379"
+    redis_url: str = "redis://localhost:6378"
     
     # App config
     environment: str = "development"
@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     
     
     # CORS
-    cors_origins: List[str] = ["http://localhost:3000"]
+    cors_origins: List[str] = ["*"]
     cors_credentials: bool = True
     cors_methods: List[str] = ["*"]
     cors_headers: List[str] = ["*"]
