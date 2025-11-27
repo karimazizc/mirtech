@@ -272,7 +272,10 @@ export default function HomePage() {
   ];
 
   if (error) {
-    return <ErrorMessage message={error} onRetry={fetchData} />;
+    return (  <div className="relative w-full h-screen">
+      <ErrorMessage message={error} onRetry={fetchData} />
+    </div>
+    )
   }
 
   return (

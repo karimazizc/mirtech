@@ -196,16 +196,19 @@ Install [docker](https://docs.docker.com/get-started/get-docker/) on your machin
 
 ```zsh
 # Build all services
-docker-compose build
+docker compose build
 
 # Start all services
-docker-compose up -d
+docker compose up -d
 
 # Check status
-docker-compose ps
+docker compose ps
 
 # View logs
-docker-compose logs -f backend
+docker compose logs -f backend
+
+# Delete
+docker compose down -d
 ```
 
 ##  Performance Optimization Techniques
