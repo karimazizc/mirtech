@@ -1,10 +1,11 @@
 "use client";
 import { 
   Database, Server, Layers, Zap, Code2, Palette, Package, GitBranch,
-  Bolt, Link2, CheckCircle, // Backend icons
+  Table, Bolt, Link2, CheckCircle, // Backend icons
   Triangle, Atom, Square, Paintbrush, // Frontend icons
   BarChart3, Theater, Type, // Visualization icons
-  Container, FolderGit2, Dices, Rocket // DevOps icons
+  Container, FolderGit2, Dices, Rocket, // DevOps icons
+  Link
 } from "lucide-react";
 
 export default function SettingsPage() {
@@ -27,7 +28,8 @@ export default function SettingsPage() {
       items: [
         { name: "PostgreSQL", version: "15+", description: "Primary relational database", icon: <Database size={24} className="text-blue-600" /> },
         { name: "Redis", version: "7+", description: "In-memory cache (5-min TTL)", icon: <Zap size={24} className="text-red-500" /> },
-        { name: "Fact Table", version: "Custom", description: "Denormalized analytics (262K+ records)", icon: <BarChart3 size={24} className="text-green-600" /> }
+        { name: "Fact Table", version: "Custom", description: "Denormalized analytics (262K+ records)", icon: <BarChart3 size={24} className="text-green-600" /> },
+        { name: "See Models here:", version: <a href="https://dbdiagram.io/d/69280639a0c4ebcc2bf31328" className="font-bold"> LINK </a >, description: "Design the database relational models using DBdiagram", icon: <Table size={24} className="text-green-600" /> }
       ]
     },
     {

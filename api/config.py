@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     
     # App config
     environment: str = "development"
-    secret_key: Optional[str] = None  # Add this
+    # secret_key: Optional[str] = None  
     
     # API settings
     api_title: str = "MirTech API"
