@@ -43,9 +43,11 @@ services:
     container_name: mirtech-backend
     environment:
       DATABASE_URL: postgresql+psycopg2://mirtech_admin:mirtech1345@postgres:5432/mirtech
-      REDIS_URL: redis://redis:6379
+      REDIS_URL: redis://host.docker.internal:6379  
       ENVIRONMENT: production
       CORS_ORIGINS: '["http://mirtech.whisttle.cloud", "https://mirtech.whisttle.cloud", "http://localhost:3000"]'
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
     ports:
       - "8000:8000"
     depends_on:

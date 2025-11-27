@@ -296,7 +296,7 @@ User Request → Next.js Frontend → FastAPI Backend → Redis Cache Check
 ##  UI/UX Considerations
 
 ### Design Philosophy
-- **Color Palette**: Inspired by modern SaaS dashboards with professional blue accent (#1a7faf)
+- **Color Palette**: Inspired by Jensi.io website. This is for good product fit.
 - **Responsive Layout**: Grid-based design that adapts to all screen sizes
 - **Visual Hierarchy**: Clear separation between stats, charts, and data tables
 - **Loading States**: Skeleton screens and spinners for better perceived performance
