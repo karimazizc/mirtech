@@ -45,7 +45,7 @@ export default function ProductDetailPage() {
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch(`http://mirtech.whisttle.cloud:8000/product/${productId}`);
+      const response = await fetch(`https://mirtech.whisttle.cloud/product/${productId}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

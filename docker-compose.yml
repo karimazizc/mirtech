@@ -68,7 +68,7 @@ services:
       dockerfile: Dockerfile.frontend
     container_name: mirtech-frontend
     environment:
-      NEXT_PUBLIC_API_URL: http://mirtech.whisttle.cloud:8000
+      NEXT_PUBLIC_API_URL: https://mirtech.whisttle.cloud
     ports:
       - "3000:3000"
     depends_on:
