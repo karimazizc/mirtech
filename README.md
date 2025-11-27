@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Api = FastAPI backend
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
+#  Start PSQL 
+
+Login psql: 
+
+```zsh
+psql postgresql
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+psql mirtech
+# or 
+psql -U mirtech_admin -b mirtech -p 5432 -h localhost
 ```
+Cheat sheet
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Database design:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+https://dbdiagram.io/d/69280639a0c4ebcc2bf31328
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Setup instructions:
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+Performance optimization techniques implemented:
+Indexing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Architecture decisions: 
+Redis + PostgreSQL + FastAPI  -> Next.js + React.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Redis to cache and preload the fact table data for periods above 3 months for faster loads.
+PostgreSQL to handle large amount of data.
+FastAPI for quick REST api handling and serializing
+Next.js and react.js + tailwind cssfor frontend for cleaner dashboard design and client side handling.
+Uses python faker to generate mock up data of more than 100,000 rows in total.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+What can be improved if I have more time:
+- Dark mode
+- Improvement on the data table (only showed the first 1000 and load more when scrolled)
+- More filtering options accompanied with GraphQL
+- Revenue sankey diagram
+- More products / transactions plot
+- Forecasting of sales by categories for the next Quarter
+- Sales report for each Quarter (Q1, Q2, Q3, Q4) 
+- Login page
+- Authentication and Authorization 
+- 'Share' link button that everyone can access to see sales report
+- Built-in report generation using LLM
+- AI search with pre defined context to finetune with appropriate RAG 
+-
