@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     
     
     # CORS
-    cors_origins: List[str] = ["*"]
+    cors_origins: List[str] = ["*", "https://mirtech.whisttle.cloud"]
     cors_credentials: bool = True
     cors_methods: List[str] = ["*"]
     cors_headers: List[str] = ["*"]
